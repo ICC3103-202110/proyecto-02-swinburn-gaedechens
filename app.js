@@ -16,15 +16,21 @@ async function app(state, update, view){
         console.log(title)//printing the title
         printTable(table)//printing the table
         console.log('Ctrl+C to exit')//how to exit from the app
+        //creating variables to get the input info
+        var input1 =''
+        var input2 =''
+        var input3 =''
         // FORM (Ask user input)
         const input = await inputchoices(model)
-        if (input == 'Add City')
-            const input1 = await inputaddcity(model)
-        if (input == 'Update City')
-            const input2 = await inputupdatecity(model)
-        if (input == 'Delete City')
-            const input3 = await inputdeletecity(model)
-        
+        if (input == 'Add City'){
+            input1 = await inputaddcity(model)
+        }
+        else if (input == 'Update City'){
+            input2 = await inputupdatecity(model)
+        }
+        else if (input == 'Delete City'){
+            input3 = await inputdeletecity(model)
+        }
         //const input = await inputchoices(model)
         //const input1 = await listForm(model)
         const updatedModel = update(input,input1,input2, input3, model) //updating the model for the app
@@ -36,7 +42,7 @@ async function app(state, update, view){
         console.clear()
     }
 }
-
+   
 module.exports = {
     app
 }

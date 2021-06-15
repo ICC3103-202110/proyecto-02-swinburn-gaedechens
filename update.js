@@ -1,3 +1,5 @@
+// Returns a random integer from 1 to 10:
+//Math.floor(Math.random() * 10) + 1;
 function update(input,input1,model){
    /* //const choices = ['Celsius', 'Fahrenheit', 'Kelvin']
     if (input1.lunit == 'Celsius' && input1.runit =='Fahrenheit')
