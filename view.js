@@ -20,14 +20,27 @@ function getTitle(){
 
 //creates table
 function getTable(model){
-    return [
-        {
-        'Name': model.name,
-        'Temp': model.temp,
-        'Max': model.max,
-        'Min': model.min
-        }
-    ]
+    const listtable = []
+    if (model.lenght>1){
+        for (var i=1; i<model.lenght;i++){
+            var name = model[i].name
+            var temp = model[i].temp
+            var min = model[i].min
+            var max = model[i].max
+            var listpush ={
+            'Name': name,
+            'Temp': temp,
+            'Max': max,
+            'Min': min}
+            listtable.push(listpush)
+        } }
+    else{var listpush ={
+            'Name':'name',
+            'Temp': 'temp',
+            'Max': 'max',
+            'Min': 'min'}
+            listtable.push(listpush)}
+    return listtable
 }
 
 //printTable(getTable())
