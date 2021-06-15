@@ -1,56 +1,15 @@
 // Returns a random integer from 1 to 10:
 //Math.floor(Math.random() * 10) + 1;
-function update(input,input1,model){
-   /* //const choices = ['Celsius', 'Fahrenheit', 'Kelvin']
-    if (input1.lunit == 'Celsius' && input1.runit =='Fahrenheit')
-        convertedvalue = (parseInt(input.value)*9/5) + 32
-    else if (input1.lunit == 'Celsius' && input1.runit =='Kelvin')
-        convertedvalue = parseInt(input.value) + 273.15
-    else if (input1.lunit == 'Celsius' && input1.runit =='Celsius')
-        convertedvalue = parseInt(input.value) //nothing to convert
-
-    else if (input1.lunit == 'Fahrenheit' && input1.runit =='Kelvin')
-        convertedvalue = (parseInt(input.value)-32)*5/9 + 273.15 
-    else if (input1.lunit == 'Fahrenheit' && input1.runit =='Celsius')
-        convertedvalue =  (parseInt(input.value)-32)*5/9
-    else if (input1.lunit == 'Fahrenheit' && input1.runit =='Fahrenheit')
-        convertedvalue = parseInt(input.value) //nothing to convert
-
-    else if (input1.lunit == 'Kelvin' && input1.runit =='Celsius')
-        convertedvalue = parseInt(input.value) -273.15
-    else if (input1.lunit == 'Kelvin' && input1.runit =='Fahrenheit')
-        convertedvalue = (parseInt(input.value)- 273.15)*9/5 + 32
-    else if (input1.lunit == 'Kelvin' && input1.runit == 'Kelvin')
-        convertedvalue = parseInt(input.value) //nothing to convert
-*/ //THIS WAS THE CODE FROM MY LAB NUMER 6, IM GOING TO USE THIS AS A GUIDE
-
-    if (input.Choices === 'Add City')
-        return{
-            ...model,
-            name: input.value,
-            temp: input1.lunit,
-            max: convertedvalue,
-            min: input1.runit
-        }
-    else if (input.Choices === 'Update City')
-        return{
-            ...model,
-            name: input.value,
-            temp: input1.lunit,
-            max: convertedvalue,
-            min: input1.runit
-        }
-    else if (input.Choices === 'Delete City')
-        return{
-            ...model,
-            name: input.value,
-            temp: input1.lunit,
-            max: convertedvalue,
-            min: input1.runit
-        }
+function updateadd(input1,model){
+    var temperature = Math.floor(Math.random()*20)+10
+    var maximum = Math.floor(Math.random()*30)+20
+    var minimum = Math.floor(Math.random()*10)+1
+    const city_to_add = {name:input1, temp: temperature ,max:maximum , min:minimum}
+    model.push(city_to_add)
+    return model
 }
 
 module.exports = {
-    update
+    updateadd
 }
 

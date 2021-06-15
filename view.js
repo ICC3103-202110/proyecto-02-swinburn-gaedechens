@@ -21,8 +21,8 @@ function getTitle(){
 //creates table
 function getTable(model){
     const listtable = []
-    if (model.lenght>1){
-        for (var i=1; i<model.lenght;i++){
+    if (model.length>1){
+        for (var i=1; i<model.length;i++){
             var name = model[i].name
             var temp = model[i].temp
             var min = model[i].min
@@ -76,7 +76,7 @@ function inputupdatecity(model){
     const message = 'Select city to update'
     return inquirer.prompt([
         {
-            name: 'addcity',
+            name: 'updatecity',
             type: 'input',
             message: message,
             default: model.temp
