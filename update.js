@@ -8,7 +8,7 @@ function updateadd(input1,model){
     model.push(city_to_add)
     return model
 }
-
+//function 
 module.exports = {
     updateadd
 }

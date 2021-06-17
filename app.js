@@ -3,7 +3,7 @@ const {updateadd} = require('./update')
 const {view} = require('./view')
 const {model} = require('./model')
 const prompt = require('prompt-sync')({sigint: true})
-const {inputchoices, inputupdatecity, inputaddcity, inputdeletecity} = require('./view')
+const {inputchoices, inputaddcity, selectCity} = require('./view')
 const {printTable} = require('console-table-printer')
 
 // Impure
@@ -31,11 +31,11 @@ async function app(state, update, view){
                 currentView: view(updatedModel)
         }
         }
-        else if (input == 'Update City'){
-            input2 = await inputupdatecity(model)
+        else if (input.Choices == 'Update City'){
+            input2 = await selectCity(model)
         }
-        else if (input == 'Delete City'){
-            input3 = await inputdeletecity(model)
+        else if (input.Choices == 'Delete City'){
+            input2 = await selectCity(model)
         }
         //const input = await inputchoices(model)
         //const input1 = await listForm(model)

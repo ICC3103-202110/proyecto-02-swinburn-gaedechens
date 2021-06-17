@@ -43,6 +43,26 @@ function getTable(model){
     return listtable
 }
 
+function selectCity(model){
+    const {dmodel} = model
+    const listm = []
+    const lmodel = model
+    const message = 'Select Location'
+    for(var i =1; i<lmodel.length;i++){
+        listm.push(lmodel[i].name)
+    }
+    return inquirer.prompt([
+        {
+            name: 'select',
+            type: 'list',
+            message: message,
+            default: dmodel,
+            choices: listm,
+
+        }])
+}
+
+
 //printTable(getTable())
 
 //input
@@ -71,6 +91,7 @@ function inputaddcity(model){
         }
     ])
 }
+/*
 //input2
 function inputupdatecity(model){
     const message = 'Select city to update'
@@ -97,7 +118,7 @@ function inputdeletecity(model){
         }
     ])
 }
-
+*/
 
 // Get actual console view
 function view(model){
@@ -111,6 +132,5 @@ module.exports = {
     view, 
     inputchoices,
     inputaddcity,
-    inputupdatecity,
-    inputdeletecity
+    selectCity
 }
