@@ -1,5 +1,5 @@
 
-const {updateadd, updatedelete} = require('./update')
+const {updateadd, updatedelete, updaterefresh} = require('./update')
 const {view} = require('./view')
 const {model} = require('./model')
 const prompt = require('prompt-sync')({sigint: true})
@@ -19,7 +19,6 @@ async function app(state, update, view){
         //creating variables to get the input info
         var input1 =''
         var input2 =''
-        var input3 =''
         // FORM (Ask user input)
         const input = await inputchoices(model)
         if (input.Choices == 'Add City'){
@@ -33,7 +32,7 @@ async function app(state, update, view){
         }
         else if (input.Choices == 'Update City'){
             input2 = await selectCity(model)
-            const updatedModel = updatedelete(input2.select, model) //updating the model for the app
+            const updatedModel = updaterefresh(input2.select, model) //updating the model for the app
             state = {
                 ...state,
                 model: updatedModel,
@@ -49,14 +48,7 @@ async function app(state, update, view){
                 currentView: view(updatedModel)
         }
         }
-        //const input = await inputchoices(model)
-        //const input1 = await listForm(model)
-        /*const updatedModel = updateadd(input,input1,input2, input3, model) //updating the model for the app
-        state = {
-            ...state,
-            model: updatedModel,
-            currentView: view(updatedModel)
-        }*/
+        
         console.clear()
     }
 }

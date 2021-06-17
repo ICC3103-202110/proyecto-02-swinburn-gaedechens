@@ -19,10 +19,22 @@ function updatedelete(input2,model){
     }
     return model
 }
+function updaterefresh(input2,model){
+    const smodel = model
+    for(var i = 0;i<smodel.length;i++){
+        if(smodel[i].name == input2){
+            updatedelete(input2,model)
+            updateadd(input2,model)
+            break
+        }
+    }
+    return model
+}
 
 //function 
 module.exports = {
     updateadd,
-    updatedelete
+    updatedelete,
+    updaterefresh
 }
 
