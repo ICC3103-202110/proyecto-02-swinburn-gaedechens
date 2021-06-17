@@ -1,5 +1,5 @@
 
-const {updateadd} = require('./update')
+const {updateadd, updatedelete} = require('./update')
 const {view} = require('./view')
 const {model} = require('./model')
 const prompt = require('prompt-sync')({sigint: true})
@@ -33,9 +33,21 @@ async function app(state, update, view){
         }
         else if (input.Choices == 'Update City'){
             input2 = await selectCity(model)
+            const updatedModel = updatedelete(input2.select, model) //updating the model for the app
+            state = {
+                ...state,
+                model: updatedModel,
+                currentView: view(updatedModel)
+        }
         }
         else if (input.Choices == 'Delete City'){
             input2 = await selectCity(model)
+            const updatedModel = updatedelete(input2.select, model) //updating the model for the app
+            state = {
+                ...state,
+                model: updatedModel,
+                currentView: view(updatedModel)
+        }
         }
         //const input = await inputchoices(model)
         //const input1 = await listForm(model)

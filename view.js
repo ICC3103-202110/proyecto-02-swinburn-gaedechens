@@ -43,6 +43,7 @@ function getTable(model){
     return listtable
 }
 
+//input2
 function selectCity(model){
     const {dmodel} = model
     const listm = []
@@ -62,9 +63,6 @@ function selectCity(model){
         }])
 }
 
-
-//printTable(getTable())
-
 //input
 function inputchoices(model){
     const message = 'Select action'
@@ -78,6 +76,7 @@ function inputchoices(model){
         }
     ])
 }
+
 //input1
 function inputaddcity(model){
     const message = 'Location?'
@@ -91,34 +90,7 @@ function inputaddcity(model){
         }
     ])
 }
-/*
-//input2
-function inputupdatecity(model){
-    const message = 'Select city to update'
-    return inquirer.prompt([
-        {
-            name: 'updatecity',
-            type: 'input',
-            message: message,
-            default: model.temp
 
-        }
-    ])
-}
-//input3
-function inputdeletecity(model){
-    const message = 'Select city to delete'
-    return inquirer.prompt([
-        {
-            name: 'deletecity',
-            type: 'input',
-            message: message,
-            default: model.temp
-
-        }
-    ])
-}
-*/
 
 // Get actual console view
 function view(model){

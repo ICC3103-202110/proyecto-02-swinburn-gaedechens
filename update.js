@@ -8,8 +8,21 @@ function updateadd(input1,model){
     model.push(city_to_add)
     return model
 }
+
+function updatedelete(input2,model){
+    const smodel = model
+    for(var i = 0;i<smodel.length;i++){
+        if(smodel[i].name == input2){
+            smodel.splice(i, 1)
+            break
+        }
+    }
+    return model
+}
+
 //function 
 module.exports = {
-    updateadd
+    updateadd,
+    updatedelete
 }
 
