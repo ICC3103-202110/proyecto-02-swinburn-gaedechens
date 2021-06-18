@@ -1,20 +1,17 @@
-const figlet = require('figlet')
-const chalk = require('chalk')
-const inquirer = require('inquirer')
-const prompt = require('prompt-sync')({sigint: true})
-const {printTable} = require('console-table-printer')
+const figlet = require("figlet");
+const chalk = require("chalk");
+const inquirer = require("inquirer");
+const prompt = require("prompt-sync")({ sigint: true });
+const { printTable } = require("console-table-printer");
 
 //title of the app
-function getTitle(){
-    return chalk.blue(
-        figlet.textSync(
-            'Weather app',
-            {
-                horizontalLayout: 'full',
-                font: 'banner'
-            }
-        )
-    )
+function getTitle() {
+  return chalk.blue(
+    figlet.textSync("Weather app", {
+      horizontalLayout: "full",
+      font: "banner",
+    })
+  );
 }
 //console.log(getTitle())
 
@@ -91,18 +88,30 @@ function inputaddcity(model){
     ])
 }
 
+//input1
+function inputaddcity(model) {
+  const message = "Location?";
+  return inquirer.prompt([
+    {
+      name: "addcity",
+      type: "input",
+      message: message,
+      default: model.temp,
+    },
+  ]);
+}
 
 // Get actual console view
-function view(model){
-    return {
-        title: getTitle(),
-        table: getTable(model)
-    }
+function view(model) {
+  return {
+    //title: getTitle(),
+    table: getTable(model),
+  };
 }
 
 module.exports = {
-    view, 
-    inputchoices,
-    inputaddcity,
-    selectCity
-}
+  view,
+  inputchoices,
+  inputaddcity,
+  selectCity,
+};
